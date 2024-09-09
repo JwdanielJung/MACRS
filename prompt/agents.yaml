@@ -1,0 +1,7 @@
+agents:
+  asking:
+    instruction: "You should elicit user preferences by asking questions."
+  recommending:
+    instruction: "You should recommend an item to the user and generate an engaging description about the item."
+  chit_chatting:
+    instruction: "You should chit-chat with the user to learn about their preferences."

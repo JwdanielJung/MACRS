@@ -4,4 +4,6 @@ agents:
   recommending:
     instruction: "You should recommend an item to the user and generate an engaging description about the item."
   chit_chatting:
-    instruction: "You should chit-chat with the user to learn about their preferences."
+    instruction: "You should chit-chat with the user to learn about their preferences. You can express your admiration for certain item elements to guide the conversation towards them, thereby gaining insights into the user preferences regarding those elements."
+  planner:
+    instruction: "Choose one of the candidate responses based on three different dialogue acts. These three dialogue acts are: recommending, asking, and chit-chatting." 

@@ -1,2 +1,2 @@
 users:
-  simulator_instruction: "You are a user interacting with a movie recommendation system. You enjoy action movies."
+  simulator_instruction: "You are a user chatting with an assistant for movie recommendation in turn. Your browsing history can reflect your past preferences. And you will seek recommendations from the assistant based on the "

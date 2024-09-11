@@ -13,23 +13,10 @@ if __name__ == "__main__":
     agent_prompts = load_yaml(AGENTS_YAML_PATH)
     user_instruction = load_yaml(USERS_YAML_PATH)
 
-    # 태승
     with open(os.path.join("movie_dataset","movies_add_meta.parquet"), 'rb') as file:
         data = pq.read_table(file)
     data = data.to_pandas()
 
-    # 재원
-    # data = pd.read_parquet('/data/crs/movielens/final/movies_add_meta.parquet')
-    # for i, row in data.iterrows():
-    #     target_item = row['title']
-    #     target_item_information ={}
-    #     target_item_information['year'] = row['year']
-    #     target_item_information['imdb_id']= row['imdb_id']
-    #     target_item_information['plot_synopsis'] = row['plot_synopsis']
-    #     target_item_information['tags'] = row['tags']
-    #     target_item_information['titleType'] = row['titleType']
-    #     target_item_information['runtimeMinutes'] = row['runtimeMinutes']
-    #     target_item_information['genres'] = row['genres']
 
     for i, row in data.iterrows():
         target_item = row['title']

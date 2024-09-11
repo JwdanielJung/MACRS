@@ -25,7 +25,7 @@ class UserSimulator:
 
     def get_user_input(self, turn):
         previous_response = self.dialogue_history[-1] if len(self.dialogue_history)!=0 else self.dialogue_history
-        return self.call_openai(f"Create a user inquiry for a movie recommendation based on the context provided in {previous_response}. Avoid replicating {previous_response} word for word and refrain from explicitly naming the target movie.")
+        return self.call_openai(f"Create a user inquiry for a movie recommendation based on the context provided in {previous_response}. Avoid replicating {previous_response} word for word and refrain from explicitly naming the target movie. Try not to be a recommender system")
 
     def process_feedback(self, system_response):
         if str(self.target_item) in str(system_response):
@@ -39,7 +39,7 @@ class UserSimulator:
             user_input = self.get_user_input(turn)
             print(f"Turn {turn} - User: {user_input}")
             self.dialogue_history.append(user_input)
-            response = self.planner_agent.plan_response(user_input,self.accepted,self.dialogue_history)
+            response = self.planner_agent.plan_response(user_input,self.dialogue_history,turn)
             # Append the selected response to the dialogue history
             self.dialogue_history.append(response)
             print(f"Turn {turn} - System: {response}")

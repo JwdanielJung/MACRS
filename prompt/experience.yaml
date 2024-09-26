@@ -1,0 +1,17 @@
+model: gpt-4o-mini
+temperature: 0.0
+max_tokens: 64
+timeout: 5
+
+messages:
+- role: system
+  content: |
+    You are summarizing the error to encompasses errors made by both respodnder agents and planner agent.
+    Based on your past action trajectory, your goal is to write a few sentences to explain why your recommendation failed as indicated by the user utterance.
+    
+    multi-turn trajecory consists of user preference, system response, and user feedback.
+    Trajectory information is as follows:
+    {{$trajectory}}
+    
+    You need to create corrective experience for planning agent to avoid repeating the same msitake.
+

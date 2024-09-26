@@ -1,0 +1,22 @@
+model: gpt-4o-mini
+temperature: 0.0
+max_tokens: 100
+timeout: 5
+
+messages:
+- role: system
+  content: |
+    You are summarizing the error to encompasses errors made by both respodnder agents and planner agent.
+    Based on your past action trajectory, your goal is to write a few sentences to explain why your recommendation failed as indicated by the user utterance.
+    
+    multi-turn trajecory consists of user preference, system response, and user feedback.
+    Trajectory information is as follows:
+    {{$trajectory}}
+    
+    You must create the strategy for three agents (chit-chat agnet, ask agent, recommend agent)
+
+    Write the resposne following format:
+    - ask : strategy for ask agent
+    - chit-chat : strategy for chit-chat agent
+    - recommend : strategy for recommend agent
+    Response should be equal or less than 15 words.

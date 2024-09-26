@@ -23,14 +23,11 @@ messages:
 
     response from chit-chat agent : {{$chitchat}}
 
-    response from recommend agent : {{$recommend}}
-
     Corrective Experiences(suggestions to the planning agent) is as follows:
     {{$experience}}
 
     From the conversation history, determine whether user movie preference is sufficient or not.
-    If sufficient,you should choose the recommend response
-    Otherwise, Must Choose one of the candidate responses based on three different dialogue acts. These three dialogue acts are: recommending, asking, and chit-chatting.
+    Must Choose one of the candidate responses based on three different dialogue acts. These three dialogue acts are: asking, or chit-chatting.
     
     Must return response following this format:
     ask: response from asking agent

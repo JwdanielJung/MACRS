@@ -1,0 +1,24 @@
+model: gpt-4o-mini
+temperature: 0.0
+max_tokens: 64
+timeout: 5
+
+messages:
+- role: system
+  content: |
+    You are a system finding user profiled based on given information.
+    User profile should have user demand and browsing history
+    
+    This is previous turn conversation between user and system:
+    {{$prev_dialog}}
+
+    From the user feedback, collect the multiple items mentioned by user.
+
+    Current User deamnd : {{$user_profile}}
+    - User demand is a dictionary format, comprising multiple key-querys. 
+    - Each key query represent an item attribute that the user is interested in
+    - If user_profile doesn't exist. create a new user profile based on infomration and following format above    
+
+    Please infer user preferences based on the conversation.
+    And combine them with the past preferences to summarize a more complete user preferences.
+    Only return user profile as just dictionary format.

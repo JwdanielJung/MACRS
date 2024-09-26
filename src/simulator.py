@@ -7,7 +7,7 @@ load_dotenv()
 
 
 class UserSimulator:
-    def __init__(self, target_item, target_movie_information,datasettype,recommend_multiple):
+    def __init__(self, target_movie, target_movie_information,datasettype,recommend_multiple):
         # # # Initialize agents
         self._datasettype = datasettype
         self._recommend_multiple = recommend_multiple     
@@ -34,7 +34,7 @@ class UserSimulator:
         self._strategy_level_prompt = (
             "/home/ubuntu/taeseung/MACRS/prompt/strategy_level.yaml"
         )
-        self._target_item = target_item
+        self._target_movie = target_movie
         if self._datasettype =="persona":
             self._persona = target_movie_information["user_persona"]
             self._tags = target_movie_information["top_k_tags"]
@@ -73,7 +73,7 @@ class UserSimulator:
         )
 
     def process_feedback(self, system_response):
-        if str(self._target_item) in str(system_response):
+        if str(self._target_movie) in str(system_response):
             return True
         return False
 
@@ -192,7 +192,7 @@ class UserSimulator:
             self.trajectory.append([self.dialogue_history[-2], user_profile])
             if self.accepted:
                 print("User has accepted the recommendation.")
-                break
+                return self.accepted ,self.turn
             else:
                 if (
                     "recommend " == self.act_history[-1]
@@ -224,3 +224,4 @@ class UserSimulator:
             self.turn += 1
 
         print("conversation ended")
+        return self.accepted, self.turn

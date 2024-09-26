@@ -124,3 +124,12 @@ def to_sparse_data(sparse_df, filename):
     feather.write_feather(dense_df, f"{filename}_data.feather")
     feather.write_feather(pd.DataFrame(index_names), f"{filename}_index.feather")
     feather.write_feather(pd.DataFrame(column_names), f"{filename}_columns.feather")
+
+def evaluation(title,given_recommendation):
+    NDCG =0
+    HT = 0
+    for i in range(len(given_recommendation)):
+        if given_recommendation[i]== title:
+            rank = i
+    if rank<10:
+        NDCG +=1
